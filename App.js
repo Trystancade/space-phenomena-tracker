@@ -14,10 +14,23 @@ function App ()
 	];
 
 	const observationStatuses = ["🔭 Visible", "🌫 Faint", "🚀 Prime for Study"];
+	function rand() { return Math.floor((Math.random() * 3)) }
 
 	return (
 		<div>
-			<!-- TODO -->
+			<ul> 
+				{spacePhenomena.map(function (item) {
+					let res = rand()
+					return (
+						<span>
+							<p>The visibility of the phenomena will be:{`${observationStatuses[res]}`}
+								<i>{res === 2 ? "Pack your bags, this is prime viewing time" : null}</i>
+							</p>
+							<li>{`${item.emoji}${item.name}`}</li>
+						</span>
+					)
+				})}
+			</ul>
 		</div>
 	);
 }
